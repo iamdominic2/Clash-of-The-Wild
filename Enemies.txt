@@ -1,0 +1,589 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+def = -0.224
+dmg = 4.52
+flag = 
+flag = 0
+Health = 3.21
+orghp = 0
+roll = 0
+speed = 1.725
+turn = 0
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    EXP = 0;
+    KNOCK POWER = 0;
+}
+
+WhenGreenFlagClicked()
+{
+    Control.Wait(0.1);
+    List.Add(Flags, "unspider");
+}
+
+
+//----- Broadcast received events -------------------------------------------------------------------------------------
+
+WhenBroadcastReceived(Change Scene)
+{
+    Motion.SetRotationStyle(left-right);
+    Looks.Show();
+    Call Kill this Clone;
+    Motion.GoToXY(0, 0);
+    Looks.SetSizeTo(100);
+    Call Spawn("Cow") Speed(1.35) Scene("x2y4") Dmg(3) Hp(6) Defense(-1) Flag("");
+    Motion.GoToXY(135, 0);
+    Call Spawn("Pig") Speed(1.2) Scene("x2y4") Dmg(2) Hp(4) Defense(-1) Flag("");
+    Motion.GoToXY(-79, 10);
+    Call Spawn("Hell") Speed(2) Scene("x3y5") Dmg(6) Hp(9) Defense(1) Flag("");
+    Motion.GoToXY(191, -135);
+    Looks.SetSizeTo(130);
+    Call Xm;
+    Call Spawn("Cow") Speed(1.35) Scene("x3y4") Dmg(3) Hp(15) Defense(0.25) Flag("");
+    Motion.GoToXY(210, -135);
+    Call Xm;
+    Call Spawn("Hell") Speed(2) Scene("x3y4") Dmg(7) Hp(15) Defense(2) Flag("");
+    Motion.GoToXY(232, -135);
+    Call Xm;
+    Call Spawn("Hell") Speed(1.4) Scene("x3y4") Dmg(8) Hp(16) Defense(2) Flag("");
+    Looks.SetSizeTo(100);
+    Motion.GoToXY(138, 46);
+    Call Spawn("Pig") Speed(1.5) Scene("x2y5") Dmg(4) Hp(3) Defense(-0.2) Flag("");
+    Motion.GoToXY(-68, -47);
+    Call Spawn("Bat") Speed(2.3) Scene("x4y4") Dmg(5) Hp(6) Defense(0) Flag("");
+    Motion.GoToXY(107, -16);
+    Call Spawn("Bat") Speed(2.1) Scene("x4y4") Dmg(6) Hp(6) Defense(0.1) Flag("");
+    Motion.GoToXY(-55, 97);
+    Call Spawn("Bat") Speed(2.1) Scene("x5y4") Dmg(5) Hp(6) Defense(-0.1) Flag("");
+    Motion.GoToXY(107, -36);
+    Call Spawn("Hell") Speed(2) Scene("x5y4") Dmg(6) Hp(15) Defense(2) Flag("");
+    Motion.GoToXY(-165, 32);
+    Looks.SetSizeTo(140);
+    Call Spawn("Bat") Speed(3) Scene("x6y4") Dmg(6) Hp(8) Defense(0.6) Flag("");
+    Motion.GoToXY(141, -36);
+    Call Spawn("Hell") Speed(2.5) Scene("x6y4") Dmg(9) Hp(18) Defense(1.6) Flag("");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Spider") Speed(1.75) Scene("x6y5") Dmg(15) Hp(50) Defense(3.5) Flag("spiderdefeated");
+    Looks.SetSizeTo(169);
+    Motion.GoToXY(-13, 28);
+    Call Spawn("Hell") Speed(2) Scene("x6y6") Dmg(10) Hp(20) Defense(2.5) Flag("");
+    Motion.GoToXY(-177, 59);
+    Call Spawn("Hell") Speed(2.1) Scene("x6y6") Dmg(10) Hp(22) Defense(2.7) Flag("");
+    Looks.SetSizeTo(120);
+    Motion.GoToXY(172, 100);
+    Call Spawn("Bat") Speed(3.4) Scene("x6y6") Dmg(8) Hp(11) Defense(3) Flag("");
+    Motion.GoToXY(0, 0);
+    Looks.SetSizeTo(145);
+    Call Spawn("Bat") Speed(3.5) Scene("x5y6") Dmg(9) Hp(10) Defense(3.1) Flag("");
+    Looks.SetSizeTo(100);
+    Motion.GoToXY(-180, -90);
+    Call Spawn("Fireguy") Speed(1) Scene("x-1y4") Dmg(12) Hp(17) Defense(4) Flag("");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Hell") Speed(3) Scene("x-2y4") Dmg(12) Hp(19) Defense(3) Flag("");
+    Looks.SetSizeTo(100);
+    Motion.GoToXY(-180, -90);
+    Call Spawn("Dog") Speed(3.3) Scene("x-2y4") Dmg(10) Hp(26) Defense(-1) Flag("");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Fireguy") Speed(1) Scene("x-4y4") Dmg(12) Hp(17) Defense(4) Flag("");
+    Motion.GoToXY(100, 100);
+    Call Spawn("Dog") Speed(3.3) Scene("x-4y4") Dmg(10) Hp(22) Defense(4) Flag("");
+    Motion.GoToXY(-100, 100);
+    Call Spawn("Dog") Speed(3.3) Scene("x-3y4") Dmg(10) Hp(25) Defense(0) Flag("");
+    Motion.GoToXY(56, -100);
+    Call Spawn("Fireguy") Speed(1) Scene("x-4y4") Dmg(12) Hp(17) Defense(4) Flag("");
+    Call Spawn("Dog") Speed(3.3) Scene("x-3y4") Dmg(10) Hp(25) Defense(0) Flag("");
+    Motion.GoToXY(-100, -100);
+    Call Spawn("Dog") Speed(3.3) Scene("x-4y4") Dmg(10) Hp(29) Defense(-2) Flag("");
+    Motion.GoToXY(0, -92);
+    Looks.SetSizeTo(105);
+    Call Spawn("Shooter") Speed(1) Scene("x-5y4") Dmg(7) Hp(16) Defense(0) Flag("");
+    Motion.GoToXY(111, 11);
+    Looks.SetSizeTo(102);
+    Call Spawn("Fireguy") Speed(1) Scene("x-5y4") Dmg(12) Hp(17) Defense(4) Flag("");
+    Motion.GoToXY(-126, 60);
+    Call Spawn("Hell") Speed(3) Scene("x-6y4") Dmg(12) Hp(24) Defense(4) Flag("");
+    Motion.GoToXY(160, -118);
+    Call Spawn("Shooter") Speed(1) Scene("x-6y4") Dmg(7) Hp(16) Defense(0) Flag("");
+    Motion.GoToXY(-177, 108);
+    Looks.SetSizeTo(106);
+    Call Spawn("Shooter") Speed(1) Scene("x-6y4") Dmg(7) Hp(17) Defense(0) Flag("");
+    Motion.GoToXY(-43, 116);
+    Looks.SetSizeTo(108);
+    Call Spawn("Shooter") Speed(1) Scene("x-6y4") Dmg(7) Hp(16) Defense(0) Flag("");
+    Motion.GoToXY(-100, 2);
+    Looks.SetSizeTo(170);
+    Call Spawn("Wizard") Speed(2.6) Scene("x-7y4") Dmg(16) Hp(100) Defense(8) Flag("wizarddefeated");
+    Motion.GoToXY(-151, 91);
+    Looks.SetSizeTo(110);
+    Call Spawn("Shooter") Speed(1) Scene("x-7y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Motion.GoToXY(0, -100);
+    Looks.SetSizeTo(120);
+    Call Spawn("Fireguy") Speed(1) Scene("x-7y3") Dmg(12) Hp(34) Defense(4) Flag("");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Dog") Speed(3.4) Scene("x-8y3") Dmg(8) Hp(21) Defense(0) Flag("");
+    Looks.SetSizeTo(160);
+    Call Spawn("Hell") Speed(3.2) Scene("x-8y4") Dmg(14) Hp(26) Defense(3) Flag("");
+    Motion.GoToXY(69, 10);
+    Looks.SetSizeTo(160);
+    Call Spawn("Hell") Speed(3.2) Scene("x-8y4") Dmg(14) Hp(28) Defense(3) Flag("");
+    Motion.GoToXY(18, 0);
+    Looks.SetSizeTo(121);
+    Call Spawn("Dog") Speed(3.4) Scene("x-9y4") Dmg(12) Hp(23) Defense(0) Flag("");
+    Motion.GoToXY(-93, -34);
+    Looks.SetSizeTo(111);
+    Call Spawn("Shooter") Speed(1) Scene("x-9y4") Dmg(7) Hp(30) Defense(0) Flag("");
+    Motion.GoToXY(-52, 44);
+    Looks.SetSizeTo(140);
+    Call Spawn("Dog") Speed(3.5) Scene("x-9y3") Dmg(15) Hp(26) Defense(0) Flag("");
+    Motion.GoToXY(-208, 90);
+    Looks.SetSizeTo(111);
+    Call Spawn("Shooter") Speed(1) Scene("x-9y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Looks.ChengeSizeBy(10);
+    Motion.GoToXY(-208, 0);
+    Call Spawn("Shooter") Speed(1) Scene("x-9y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Looks.ChengeSizeBy(10);
+    Motion.GoToXY(-208, -81);
+    Call Spawn("Shooter") Speed(1) Scene("x-9y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Call Fast;
+    Looks.ChengeSizeBy(7);
+    Motion.GoToXY(-165, 155);
+    Call Spawn("Shooter") Speed(1) Scene("x-10y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Motion.GoToXY(15, 147);
+    Looks.ChengeSizeBy(3);
+    Call Spawn("Shooter") Speed(1) Scene("x-10y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Motion.GoToXY(162, 151);
+    Looks.ChengeSizeBy(3);
+    Call Spawn("Shooter") Speed(1) Scene("x-10y3") Dmg(7) Hp(30) Defense(0) Flag("");
+    Motion.GoToXY(-21, 89);
+    Looks.SetSizeTo(95);
+    Call Spawn("Dragon") Speed(3) Scene("x-11y3") Dmg(29) Hp(150) Defense(14) Flag("win");
+    Looks.Hide();
+}
+
+WhenBroadcastReceived(Game Over)
+{
+    Stop(other scripts in sprite);
+    Control.DeleteThisClone();
+}
+
+
+//----- Start as clone ------------------------------------------------------------------------------------------------
+
+Control.WhenIStartAsClone()
+{
+    Forever
+    {
+        If (Not (List.ContainsItem(Nopoint, Costume.GetNumberName(number))))
+        {
+            Motion.PointTowards(Player);
+        }
+        If (Sensing.TouchingObject(_edge_) And List.ContainsItem(Nopoint, Costume.GetNumberName(number)))
+        {
+            Control.DeleteThisClone();
+        }
+        Motion.ChangeXBy((sin(Motion.Direction()) * speed));
+        If ((Sensing.TouchingObject(Wall) Or Sensing.TouchingColour(#66655e)) And (Not (List.ContainsItem(Nopoint, Costume.GetNumberName(number)))))
+        {
+            Motion.ChangeXBy((-1 * (sin(Motion.Direction()) * speed)));
+        }
+        Motion.ChangeYBy((cos(Motion.Direction()) * speed));
+        If ((Sensing.TouchingObject(Wall) Or Sensing.TouchingColour(#66655e)) And (Not (List.ContainsItem(Nopoint, Costume.GetNumberName(number)))))
+        {
+            Motion.ChangeYBy((-1 * (cos(Motion.Direction()) * speed)));
+        }
+        roll = Operator.Random(0.85 , 1.15);
+        Call Collision;
+        If ((Operator.Random(1 , 50) == 1) And (Costume.GetNumberName(number) == 8))
+        {
+            Repeat (12)
+            {
+                Call Collision;
+            }
+            Motion.SetRotationStyle(all around);
+            Motion.Move(35);
+            orghp = Health;
+            Call Spawn("Fireball") Speed(3.6) Scene("") Dmg(10) Hp(4) Defense(-21) Flag("");
+            Looks.SwitchCostumeTo(Fireguy);
+            Motion.SetRotationStyle(left-right);
+            Motion.Move(-35);
+            speed = 1;
+            dmg = 12;
+            Health = orghp;
+            def = 4;
+        }
+        If ((Operator.Random(1 , (69 / (((Scene X == -10) * 2) + 1))) == 1) And (Costume.GetNumberName(number) == 11))
+        {
+            Repeat (16)
+            {
+                Call Collision;
+            }
+            Motion.SetRotationStyle(all around);
+            Motion.Move(35);
+            orghp = Health;
+            Call Spawn("Arrow") Speed((((Scene X == -10) * 2) + 4)) Scene("") Dmg(14) Hp(4) Defense(-13) Flag("");
+            Looks.SwitchCostumeTo(Shooter);
+            Motion.SetRotationStyle(left-right);
+            Motion.Move(-35);
+            speed = 1;
+            dmg = 7;
+            Health = orghp;
+            def = 0;
+        }
+    }
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Collision (warp=false)
+{
+    If (Sensing.TouchingObject(Player) And (INVUNERABLE < 1))
+    {
+        Event.Broadcast("Ouch");
+        KNOCK DIR = Motion.Direction();
+        KNOCK POWER = 4;
+        Sound.Play(roblox-death-sound_1);
+        If (Operator.Random(1 , 17) == 1)
+        {
+            Sound.Play(Critical_Hit_Sound_Effect_(getmp3);
+            PLAYER HEALTH += (Operator.Round((((0 - dmg) + (LEVEL / 1.8)) * 2)) * roll);
+            If (Operator.Round((((0 - dmg) + (LEVEL / 1.8)) * 1.2)) > -0.01)
+            {
+                PLAYER HEALTH += ((-1 * Operator.Round((((0 - dmg) + (LEVEL / 1.8)) * 2))) * roll);
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, -2);
+                List.Add(Text, 0);
+                Repeat (3)
+                {
+                    Motion.PointTowards(Player);
+                    Motion.ChangeXBy((sin(Motion.Direction()) * speed));
+                    If Sensing.TouchingObject(Wall)
+                    {
+                        Motion.ChangeXBy((-1 * (sin(Motion.Direction()) * speed)));
+                    }
+                    Motion.ChangeYBy((cos(Motion.Direction()) * speed));
+                    If Sensing.TouchingObject(Wall)
+                    {
+                        Motion.ChangeYBy((-1 * (cos(Motion.Direction()) * speed)));
+                    }
+                }
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, "C");
+                List.Add(Text, 0);
+            }
+            Else
+            {
+                KNOCK DIR = Motion.Direction();
+                If (Not ((Sensing.Of(costume name, Wall) == "x-10y3")))
+                {
+                    KNOCK POWER = 7;
+                }
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, Operator.Round((((0 - dmg) + (LEVEL / 2)) * 2)));
+                List.Add(Text, 0);
+                Repeat (3)
+                {
+                    Motion.PointTowards(Player);
+                    Motion.ChangeXBy((sin(Motion.Direction()) * speed));
+                    If Sensing.TouchingObject(Wall)
+                    {
+                        Motion.ChangeXBy((-1 * (sin(Motion.Direction()) * speed)));
+                    }
+                    Motion.ChangeYBy((cos(Motion.Direction()) * speed));
+                    If Sensing.TouchingObject(Wall)
+                    {
+                        Motion.ChangeYBy((-1 * (cos(Motion.Direction()) * speed)));
+                    }
+                }
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, "C");
+                List.Add(Text, 0);
+            }
+        }
+        Else
+        {
+            PLAYER HEALTH += (Operator.Round((((0 - dmg) + (LEVEL / 1.8)) * 1.2)) * roll);
+            If (Operator.Round((((0 - dmg) + (LEVEL / 2)) * 1.2)) > -0.01)
+            {
+                PLAYER HEALTH += (((-1 * Operator.Round((((0 - dmg) + (LEVEL / 1.8)) * 1.2))) * roll) - 1);
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, -1);
+                List.Add(Text, 0);
+            }
+            Else
+            {
+                KNOCK DIR = Motion.Direction();
+                If (Not ((Sensing.Of(costume name, Wall) == "x-10y3")))
+                {
+                    KNOCK POWER = 6;
+                }
+                List.Add(Text, Sensing.Of(x position, Player));
+                List.Add(Text, Sensing.Of(y position, Player));
+                List.Add(Text, Operator.Round((((0 - dmg) + (LEVEL / 2)) * 1.2)));
+                List.Add(Text, 0);
+            }
+        }
+        INVUNERABLE = 15;
+    }
+    Else
+    {
+        If Sensing.TouchingObject(Weapon)
+        {
+            If (((-1 * (LEVEL + 1)) + def) < 0)
+            {
+                Sound.Play(Hit3);
+                If (Operator.Random(1 , 17) == 1)
+                {
+                    Health += (((((-2.3 * (LEVEL + 1)) + def) / 2) * roll) - 1);
+                    Sound.Play(Critical_Hit_Sound_Effect_(getmp3);
+                    List.Add(Text, Motion.XPosition());
+                    List.Add(Text, Motion.YPosition());
+                    List.Add(Text, (Operator.Round(((((-2 * (LEVEL + 1)) + def) * 1) * roll)) - 1));
+                    List.Add(Text, 0);
+                    Repeat (2)
+                    {
+                        Motion.PointTowards(Player);
+                        Motion.ChangeXBy((sin(Motion.Direction()) * speed));
+                        If Sensing.TouchingObject(Wall)
+                        {
+                            Motion.ChangeXBy((-1 * (sin(Motion.Direction()) * speed)));
+                        }
+                        Motion.ChangeYBy((cos(Motion.Direction()) * speed));
+                        If Sensing.TouchingObject(Wall)
+                        {
+                            Motion.ChangeYBy((-1 * (cos(Motion.Direction()) * speed)));
+                        }
+                    }
+                    List.Add(Text, Motion.XPosition());
+                    List.Add(Text, Motion.YPosition());
+                    List.Add(Text, "C");
+                    List.Add(Text, 0);
+                }
+                Else
+                {
+                    Health += (((((-1.15 * (LEVEL + 1)) + def) / 2) * roll) - 1);
+                    List.Add(Text, Motion.XPosition());
+                    List.Add(Text, Motion.YPosition());
+                    List.Add(Text, (Operator.Round(((((-1.15 * (LEVEL + 1)) + def) * roll) * 1)) - 1));
+                    List.Add(Text, 0);
+                }
+                Call Die;
+                Wait Until (Not (Sensing.TouchingObject(Weapon)));
+            }
+            Else
+            {
+                Sound.Play(Hit3);
+                List.Add(Text, Motion.XPosition());
+                List.Add(Text, Motion.YPosition());
+                List.Add(Text, -1);
+                Health += -1;
+                List.Add(Text, 0);
+                Call Die;
+                Wait Until (Not (Sensing.TouchingObject(Weapon)));
+            }
+        }
+    }
+    If ((Operator.Random(1 , 80) == 1) And (Costume.GetNumberName(number) == 5))
+    {
+        Motion.Move(35);
+        orghp = Health;
+        If (Operator.Random(1 , 2) == 1)
+        {
+            Call Spawn("Bat2") Speed(3.6) Scene("x6y5") Dmg(7) Hp(11) Defense(1) Flag("");
+        }
+        Else
+        {
+            Call Spawn("Hell2") Speed(3.6) Scene("x6y5") Dmg(9) Hp(13) Defense(0) Flag("");
+        }
+        Looks.SwitchCostumeTo(Spider);
+        Motion.Move(-35);
+        speed = 2.01245;
+        dmg = 14.69;
+        Health = orghp;
+        def = 3.61;
+    }
+    If ((Operator.Random(1 , 17) == 1) And (Costume.GetNumberName(number) == 13))
+    {
+        turn = Operator.Random(-33 , 33);
+        Looks.SetSizeTo(110);
+        Motion.Move(35);
+        orghp = Health;
+        Motion.SetRotationStyle(all around);
+        Motion.TurnRight(turn);
+        If (Operator.Random(1 , 2) == 1)
+        {
+            Call Spawn("Fireball") Speed(3.9) Scene("") Dmg(12) Hp(8) Defense(-16) Flag("");
+        }
+        Else
+        {
+            Call Spawn("Arrow") Speed(4.2) Scene("") Dmg(16) Hp(6) Defense(-13) Flag("");
+        }
+        Motion.SetRotationStyle(left-right);
+        Motion.TurnLeft(turn);
+        Looks.SwitchCostumeTo(Wizard);
+        Motion.Move(-35);
+        speed = 2.99;
+        dmg = 18.08;
+        Health = orghp;
+        def = 4.173;
+        Looks.SetSizeTo(170);
+    }
+    If ((Operator.Random(1 , 15) == 1) And (Costume.GetNumberName(number) == 14))
+    {
+        turn = Operator.Random(-33 , 33);
+        Looks.SetSizeTo(100);
+        Motion.Move(35);
+        orghp = Health;
+        Motion.SetRotationStyle(all around);
+        Motion.TurnRight(turn);
+        Call Spawn("Fireball") Speed(5.36) Scene("") Dmg(23) Hp(8) Defense(-15) Flag("");
+        Motion.SetRotationStyle(left-right);
+        Motion.TurnLeft(turn);
+        Looks.SwitchCostumeTo(Dragon);
+        Motion.Move(-35);
+        speed = 3.45;
+        dmg = 32.77;
+        Health = orghp;
+        def = 14.98;
+        Looks.SetSizeTo(95);
+    }
+}
+
+Define Die (warp=false)
+{
+    If (Health < 1)
+    {
+        Sound.Play(Bonk);
+        Looks.Hide();
+        Repeat (4)
+        {
+            Control.Wait(0);
+        }
+        List.Add(Text, Motion.XPosition());
+        List.Add(Text, Motion.YPosition());
+        If (Exp.Extra[Costume.GetNumberName(number)] > -50)
+        {
+            List.Add(Text, Operator.Round((((((Operator.Round(((((dmg * 1.2) + (sqrt(speed) * 1.5)) + ((def + 7) / 2)) * 1.4)) + (Exp.Extra[Costume.GetNumberName(number)] * 1.4)) + ((Looks.Size() / 5) - 16)) * ((((Scene X < 0) + (((Scene X < -4) * 1.5) + ((Scene X < -8) * 3.5))) / 1.5) + 1)) / 5.5) * 5)));
+        }
+        Else
+        {
+            List.Add(Text, 1);
+        }
+        List.Add(Text, 121);
+        If (Costume.GetNumberName(number) == 5)
+        {
+            List.DeleteItem(Flags, List.IndexOf(Flags, "unspider"));
+            List.Add(Flags, "spiderdefeated");
+        }
+        If (Costume.GetNumberName(number) == 13)
+        {
+            List.Add(Flags, "wizardgone");
+        }
+        If (Costume.GetNumberName(number) == 14)
+        {
+            List.Add(Flags, "win");
+        }
+        Repeat (5)
+        {
+            If (Exp.Extra[Costume.GetNumberName(number)] > -100)
+            {
+                EXP += ((((Operator.Round(((((dmg * 1.2) + (sqrt(speed) * 1.5)) + ((def + 7) / 2)) * 1.4)) + (Exp.Extra[Costume.GetNumberName(number)] * 1.4)) + ((Looks.Size() / 5) - 16)) * ((((Scene X < 0) + (((Scene X < -4) * 1.5) + ((Scene X < -8) * 3.5))) / 1.5) + 1)) / 5.5);
+            }
+            Else
+            {
+                EXP += 0.2;
+            }
+        }
+        Control.DeleteThisClone();
+    }
+    Looks.Hide();
+    Control.Wait(0);
+    Looks.Show();
+    Wait Until (Not (Sensing.TouchingObject(Weapon)));
+}
+
+Define Fast (warp=true)
+{
+    Looks.SetSizeTo(25);
+    Motion.GoToXY(-128, 8);
+    Repeat (7)
+    {
+        Looks.ChengeSizeBy(5);
+        Call Spawn("Hell") Speed((111 / Looks.Size())) Scene("x-10y3") Dmg(14) Hp(26) Defense(0) Flag("");
+        Motion.ChangeXBy(16);
+    }
+}
+
+Define Kill this Clone (warp=true)
+{
+    Control.DeleteThisClone();
+}
+
+Define Spawn(string Item) Speed(string speed) Scene(string text) Dmg(string dmg) Hp(string health) Defense(string def) Flag(string flag) (warp=false)
+{
+    If (((Sensing.Of(costume name, Wall) == text) Or (text == "")) And (Not (List.ContainsItem(Flags, flag))))
+    {
+        Looks.SwitchCostumeTo(Item);
+        dmg = (dmg * 1.13);
+        speed = (speed * 1.15);
+        def = (def * 1.04);
+        flag = flag;
+        Health = (health * 1.07);
+        Control.CreateCloneOf(_myself_);
+    }
+}
+
+Define Xm (warp=true)
+{
+    If (Sensing.Of(x position, Player) > 0)
+    {
+        Motion.ChangeXBy(-180);
+    }
+}
+
+
+//----- Orphaned blocks -----------------------------------------------------------------------------------------------
+
+Looks.Hide();
+
+List.Add(Text, -215);
+List.Add(Text, -180);
+
+(((Scene X < 0) + ((Scene X < -8) / 0.45)) / 1.5);
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+Arrow.png
+Bat.png
+Bat2.png
+Cow.png
+Dog.png
+Dragon.png
+Fireball.png
+Fireguy.png
+Hell.png
+Hell2.png
+Pig.png
+Shooter.png
+Spider.png
+Wizard.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+Bonk.wav
+B Trombone.wav
+Critical_Hit_Sound_Effect_(getmp3.wav
+Hit3.wav
+roblox-death-sound_1.wav

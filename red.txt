@@ -1,0 +1,34 @@
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Control.Wait(0);
+    Looks.Hide();
+    Forever
+    {
+        Looks.Hide();
+        If ((PLAYER HEALTH / PLAYER MAX HP) < 0.25)
+        {
+            Looks.Show();
+            Looks.SetEffectTo(GHOST, 100);
+            Repeat (8)
+            {
+                Looks.ChangeEffectBy(GHOST, -7);
+            }
+            Repeat (8)
+            {
+                Looks.ChangeEffectBy(GHOST, 7);
+            }
+        }
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+costume1.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+pop.wav

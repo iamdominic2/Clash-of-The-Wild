@@ -1,0 +1,72 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+flag = 0
+Freeze = 20
+price = 0
+speech = 0
+type = 0
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Looks.Hide();
+}
+
+
+//----- Start as clone ------------------------------------------------------------------------------------------------
+
+Control.WhenIStartAsClone()
+{
+    Motion.GoTo(Player);
+    Motion.PointInDirection(Sensing.Of(direction, Player));
+    Motion.SetRotationStyle(all around);
+    Looks.Show();
+    Looks.SwitchCostumeTo(Sword);
+    Looks.SetSizeTo(200);
+    Motion.Move(3);
+    Repeat (7)
+    {
+        Motion.Move(7.5);
+        Looks.ChangeEffectBy(GHOST, 15);
+        If Sensing.TouchingObject(Wall)
+        {
+            Control.Wait(0);
+            Control.DeleteThisClone();
+        }
+    }
+    Control.DeleteThisClone();
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Fix collision (warp=true)
+{
+    Motion.PointInDirection(90);
+    Freeze = 1;
+    Repeat Until (Not (Sensing.TouchingObject(Wall)))
+    {
+        Motion.Move((-1 * Freeze));
+        Motion.TurnRight(45);
+        Motion.Move(Freeze);
+        Freeze += (Motion.Direction() == 0);
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+Sword.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+Bite.wav
+Black Out.wav
+Heal.wav
+High Whoosh.wav
+Pokemon_Wall_Bump_Sound_Effect_(getmp3.wav
+pokmon_low_hp_sound_no_battle_the_(getmp3.wav

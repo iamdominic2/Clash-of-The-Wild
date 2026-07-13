@@ -1,0 +1,289 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+Control = Idle
+Freeze = 5
+Move = 0
+Prev = 8
+Wall Bump = -20
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Scene X = 1;
+    Scene Y = 5;
+    Motion.GoToXY(-114, 50);
+    Event.Broadcast("Change Scene");
+    Control.Wait(0.1);
+    List.Add(Inventory, "Potion");
+    GOLD = 0;
+    Move = 0;
+    Looks.SwitchCostumeTo(Down2);
+    LEVEL = 1;
+    Looks.SetSizeTo(120);
+    GAME PAUSE = 0;
+    TESTING = 0;
+    Wall Bump = 0;
+    Forever
+    {
+        Looks.ClearGraphicEffects();
+        If (Sensing.TouchingColour(#37aa69) And (Sensing.Of(costume name, Wall) == "x4y6"))
+        {
+            Sound.Play(Teleport2);
+            Motion.GlideTo(-168, 105, 0.2);
+            Repeat (20)
+            {
+                Looks.ChangeEffectBy(GHOST, 5);
+            }
+            Motion.GoToXY(0, 0);
+            Scene X = 1;
+            Scene Y = 4;
+            Event.Broadcast("Change Scene");
+            Repeat (20)
+            {
+                Looks.ChangeEffectBy(GHOST, -5);
+            }
+        }
+        PLAYER HEALTH += ((PLAYER MAX HP / 1490) * ((Control == "Idle") + 1));
+        Variable.Hide(GOLD);
+        Wall Bump += -1;
+        If (KNOCK POWER > 0)
+        {
+            Call Knock;
+        }
+        Control = "Idle";
+        If ((Sensing.KeyPressed(a) Or Sensing.KeyPressed(left arrow)) Or (STICK DIR == -90))
+        {
+            Control = "Left";
+            Sound.Play(Footsteps);
+            Motion.PointInDirection(-90);
+        }
+        If ((Sensing.KeyPressed(d) Or Sensing.KeyPressed(right arrow)) Or (STICK DIR == 90))
+        {
+            Control = "Right";
+            Sound.Play(Footsteps);
+            Motion.PointInDirection(90);
+        }
+        If ((Sensing.KeyPressed(w) Or Sensing.KeyPressed(up arrow)) Or (STICK DIR == 0))
+        {
+            Control = "Up";
+            Sound.Play(Footsteps);
+            Motion.PointInDirection(0);
+        }
+        If ((Sensing.KeyPressed(s) Or Sensing.KeyPressed(down arrow)) Or (STICK DIR == 180))
+        {
+            Control = "Down";
+            Sound.Play(Footsteps);
+            Motion.PointInDirection(180);
+        }
+        Prev = Costume.GetNumberName(number);
+        INVUNERABLE += -1;
+        Looks.SwitchCostumeTo(Box);
+        Motion.Move(((Not ((Control == "Idle"))) * (0.75 + (5 + (TESTING * 4)))));
+        Call Bounce;
+        Move += ((Not ((Control == "Idle"))) / 2.4);
+        Looks.SwitchCostumeTo(Prev);
+        Looks.SwitchCostumeTo(Operator.Join(Control, floor(((Move % 1.95) + 1))));
+        If (Motion.YPosition() < -180)
+        {
+            Call Change Scene xy(Motion.XPosition())(180) Scene changes xy(0)(-1);
+        }
+        If (Motion.YPosition() > 180)
+        {
+            Call Change Scene xy(Motion.XPosition())(-180) Scene changes xy(0)(1);
+        }
+        If (Motion.XPosition() < -239)
+        {
+            Call Change Scene xy(239)(Motion.YPosition()) Scene changes xy(-1)(0);
+        }
+        If (Motion.XPosition() > 239)
+        {
+            Call Change Scene xy(-239)(Motion.YPosition()) Scene changes xy(1)(0);
+        }
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Control.Wait(0);
+    Forever
+    {
+        If ((Sensing.KeyPressed(h) Or (STICK ACTION == 1)) And (PLAYER HEALTH < PLAYER MAX HP))
+        {
+            If List.ContainsItem(Inventory, "Potion")
+            {
+                Repeat (2)
+                {
+                    PLAYER HEALTH += 5;
+                }
+                List.DeleteItem(Inventory, List.IndexOf(Inventory, "Potion"));
+                List.Add(Text, Motion.XPosition());
+                List.Add(Text, Motion.YPosition());
+                List.Add(Text, 10);
+                List.Add(Text, 80);
+                Sound.PlayUntilDone(Heal);
+            }
+            Else
+            {
+                If List.ContainsItem(Inventory, "Super Potion")
+                {
+                    Repeat (2)
+                    {
+                        PLAYER HEALTH += 10;
+                    }
+                    List.DeleteItem(Inventory, List.IndexOf(Inventory, "Super Potion"));
+                    List.Add(Text, Motion.XPosition());
+                    List.Add(Text, Motion.YPosition());
+                    List.Add(Text, 20);
+                    List.Add(Text, 80);
+                    Sound.PlayUntilDone(Heal);
+                }
+                Else
+                {
+                    If List.ContainsItem(Inventory, "Hyper Potion")
+                    {
+                        Repeat (2)
+                        {
+                            PLAYER HEALTH += 25;
+                        }
+                        List.DeleteItem(Inventory, List.IndexOf(Inventory, "Hyper Potion"));
+                        List.Add(Text, Motion.XPosition());
+                        List.Add(Text, Motion.YPosition());
+                        List.Add(Text, 50);
+                        List.Add(Text, 80);
+                        Sound.PlayUntilDone(Heal);
+                    }
+                    Else
+                    {
+                    }
+                }
+            }
+        }
+        If (PLAYER HEALTH > PLAYER MAX HP)
+        {
+            PLAYER HEALTH = PLAYER MAX HP;
+        }
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Forever
+    {
+        If ((((Sensing.KeyPressed(z) Or Sensing.KeyPressed(m)) Or Sensing.KeyPressed(space)) Or (STICK ACTION == 2)) And List.ContainsItem(Inventory, "Sword"))
+        {
+            Control.CreateCloneOf(Weapon);
+            Repeat (10)
+            {
+                Control.Wait(0);
+            }
+        }
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Control.Wait(0);
+    Forever
+    {
+        If (PLAYER HEALTH < 0)
+        {
+            Event.Broadcast("Game Over");
+            Stop(other scripts in sprite);
+            Sound.PlayUntilDone(Black Out);
+            Sound.StopAllSounds();
+            Music = 13;
+            Stop(this script);
+        }
+    }
+}
+
+
+//----- Broadcast received events -------------------------------------------------------------------------------------
+
+WhenBroadcastReceived(Ouch)
+{
+    Looks.SetEffectTo(GHOST, 100);
+    Control.Wait(0);
+    Repeat (4)
+    {
+        Looks.ChangeEffectBy(GHOST, -25);
+    }
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Bounce (warp=true)
+{
+    If Sensing.TouchingObject(Wall)
+    {
+        Freeze = 0;
+        If (Wall Bump < 0)
+        {
+            Sound.Play(Pokemon_Wall_Bump_Sound_Effect_(getmp3);
+            Sound.Play(Door Closing);
+            Wall Bump = 9;
+        }
+        Call Fix collision(Motion.XPosition())(Motion.YPosition());
+    }
+}
+
+Define Change Scene xy(string x)(string y) Scene changes xy(string x2)(string y2) (warp=false)
+{
+    Sound.Play(High Whoosh);
+    Motion.SetX(x);
+    Motion.SetY(y);
+    Scene Y += y2;
+    Scene X += x2;
+    Control.Wait(0);
+    Event.Broadcast("Change Scene");
+}
+
+Define Fix collision(string x)(string y) (warp=true)
+{
+    Motion.PointInDirection(90);
+    Freeze = 1;
+    Repeat Until (Not (Sensing.TouchingObject(Wall)))
+    {
+        Motion.GoToXY(x, y);
+        Motion.TurnRight(45);
+        Motion.Move(Freeze);
+        Freeze += (Motion.Direction() == 0);
+    }
+    Motion.PointInDirection(((Operator.Round((Motion.Direction() / 90)) * 90) + 180));
+}
+
+Define Knock (warp=true)
+{
+    Motion.PointInDirection(KNOCK DIR);
+    Motion.Move(KNOCK POWER);
+    KNOCK POWER += -1;
+    Call Fix collision(Motion.XPosition())(Motion.YPosition());
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+Box.png
+Down1.png
+Down2.png
+Left1.png
+Left2.png
+Right1.png
+Right2.png
+Sword.png
+Up1.png
+Up2.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+Bite.wav
+Black Out.wav
+Heal.wav
+High Whoosh.wav
+Pokemon_Wall_Bump_Sound_Effect_(getmp3.wav
+Teleport2.wav

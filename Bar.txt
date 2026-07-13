@@ -1,0 +1,66 @@
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    PLAYER HEALTH = 24;
+    PLAYER MAX HP = 24;
+    Looks.SetEffectTo(GHOST, 100);
+    Looks.Hide();
+    Forever
+    {
+        Motion.GoTo(Player);
+        Motion.ChangeYBy(28);
+        Motion.ChangeXBy((PLAYER MAX HP / 2));
+        Pen.SetPenSizeTo(5);
+        Pen.SetPenColorToColor(#353535);
+        Pen.Down();
+        Motion.ChangeXBy((0 - PLAYER MAX HP));
+        Pen.SetPenSizeTo(2);
+        Pen.SetPenColorToColor(#66e2ac);
+        Pen.SetPenTo(color, ((PLAYER HEALTH / PLAYER MAX HP) * 33));
+        Motion.ChangeXBy(PLAYER HEALTH);
+        Pen.Clear();
+        Motion.GoTo(Player);
+        Motion.ChangeYBy(24);
+        Motion.ChangeXBy(10);
+        Pen.SetPenSizeTo(4);
+        Pen.SetPenColorToColor(#333333);
+        Pen.Down();
+        Motion.ChangeXBy(-20);
+        Pen.SetPenSizeTo(2);
+        Pen.SetPenColorToColor(#66bee2);
+        Pen.Down();
+        Motion.ChangeXBy(((EXP / Level Curve[LEVEL]) * 20));
+        Pen.Clear();
+        If (PLAYER HEALTH > PLAYER MAX HP)
+        {
+            PLAYER HEALTH = PLAYER MAX HP;
+        }
+        Else
+        {
+            If (PLAYER HEALTH < 0)
+            {
+                PLAYER HEALTH = -0.01;
+            }
+        }
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Forever
+    {
+        FPS = Operator.Round((1 / Sensing.Timer()));
+        Sensing.ResetTimer();
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+costume1.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+pop.wav

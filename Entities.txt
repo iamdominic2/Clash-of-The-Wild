@@ -1,0 +1,279 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+flag = acdweqhy
+price = 0
+speech = I've lost my keys! Help find them!
+type = Character
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Looks.Hide();
+    List.DeleteAll(Flags);
+    List.Add(Flags, "Mumspeech1");
+}
+
+
+//----- Broadcast received events -------------------------------------------------------------------------------------
+
+WhenBroadcastReceived(Change Scene)
+{
+    Repeat (1)
+    {
+        Control.DeleteThisClone();
+    }
+    Looks.Show();
+    Motion.GoToXY(69, 65);
+    Call Spawn("Potion") Price(0) Scene("x1y5") Flag("acdweqhy");
+    Motion.GoToXY(-190, -100);
+    Call Spawn("Hyper Potion") Price(0) Scene("x-1y4") Flag("hyper12312");
+    Motion.GoToXY(-195, -140);
+    Call Spawn("Hp Up") Price(0) Scene("x0y4_e") Flag("hpup12");
+    Call Spawn("Hp Up") Price(0) Scene("x0y4") Flag("hpup12");
+    Motion.GoToXY(146, -130);
+    Call Spawn("Potion") Price(0) Scene("x0y4_e") Flag("suppot12x");
+    Motion.ChangeYBy(55);
+    Call Spawn("Coin") Price(-1) Scene("x0y4_e") Flag("qwxwexh");
+    Motion.ChangeYBy(25);
+    Call Spawn("Coin") Price(-1) Scene("x0y4_e") Flag("c762");
+    Motion.GoToXY(146, -130);
+    Call Spawn("Potion") Price(0) Scene("x0y4") Flag("suppot12x");
+    Motion.ChangeYBy(55);
+    Call Spawn("Coin") Price(-1) Scene("x0y4") Flag("qwxwexh");
+    Motion.ChangeYBy(25);
+    Call Spawn("Coin") Price(-1) Scene("x0y4") Flag("c762");
+    Motion.GoToXY(190, 120);
+    Call Spawn("Sword") Price(0) Scene("x1y4") Flag("sd1");
+    Motion.GoToXY(-184, 30);
+    Call Spawn("Potion") Price(3) Scene("x1y4") Flag("potshop1");
+    Motion.GoToXY(-184, -45);
+    Call Spawn("Super Potion") Price(5) Scene("x1y4") Flag("suppotshop1");
+    Motion.GoToXY(-184, -130);
+    Call Spawn character("Shopkeeper") Say:("Welcome to the shop! Feel free to buy my merchandise!") Scene("x1y4") Flag("wqdjiwqdijixsknsapapowqop");
+    Motion.GoToXY(-160, -50);
+    Call Spawn character("Mum") Say:(mumspeech[(List.ContainsItem(Inventory, "Key") + 1)]) Scene("x1y5") Flag("Mumspeech2");
+    Motion.GoToXY(-120, 0);
+    Call Spawn("Coin") Price(-1) Scene("x3y4") Flag("c1.");
+    Motion.GoToXY(101, 54);
+    Call Spawn("Coin") Price(-1) Scene("x2y5") Flag("c2");
+    Motion.GoToXY(-181, 125);
+    Call Spawn("Coin") Price(-1) Scene("x2y4") Flag("c3");
+    Motion.GoToXY(138, -123);
+    Call Spawn("Potion") Price(0) Scene("x2y5") Flag("p5");
+    Motion.GoToXY(186, 118);
+    Call Spawn("Coin") Price(-1) Scene("x3y4") Flag("c57");
+    Motion.GoToXY(144, 118);
+    Call Spawn("Super Potion") Price(0) Scene("x3y4") Flag("sp1");
+    Motion.GoToXY(20, -100);
+    Call Spawn("Super Potion") Price(0) Scene("x4y4") Flag("sp412m");
+    Motion.GoToXY(81, 127);
+    Call Spawn("Coin") Price(-1) Scene("x2y4") Flag("12c");
+    Motion.GoToXY(-150, 138);
+    Call Spawn("Super Potion") Price(0) Scene("x6y4") Flag("x213");
+    Motion.GoToXY(-168, 37);
+    Call Spawn("Potion") Price(0) Scene("x6y4") Flag("bhgh");
+    Motion.GoToXY(-110, 108);
+    Call Spawn character("Shopkeeper") Say:("There's a scary creature in the cave. Watch out!") Scene("x3y4") Flag("");
+    Motion.GoToXY(174, 100);
+    Call Spawn("Super Potion") Price(0) Scene("x6y6") Flag("sca");
+    Motion.GoToXY(-38, 103);
+    Call Spawn("Key") Price(0) Scene("x4y6") Flag("keyisa");
+    Motion.GoToXY(-69, 20);
+    Call Spawn("Hp Up") Price(0) Scene("x5y6") Flag("hpuop21");
+    Motion.GoToXY(-148, 131);
+    Call Spawn("Super Potion") Price(5) Scene("x-2y4") Flag("ascsa");
+    Motion.GoToXY(-108, 131);
+    Call Spawn("Hyper Potion") Price(7) Scene("x-2y4") Flag("zxcr");
+    Motion.GoToXY(-60, 130);
+    Call Spawn("Hp Up") Price(9) Scene("x-2y4") Flag("trhrth");
+    Motion.GoToXY(-163, 23);
+    Call Spawn("Coin") Price(-1) Scene("x-2y4") Flag("2ex12e");
+    Motion.GoToXY(-123, 23);
+    Call Spawn("Coin") Price(-1) Scene("x-2y4") Flag("qwewqex");
+    Motion.GoToXY(-143, -33);
+    Call Spawn("Coin") Price(-1) Scene("x-2y4") Flag("casdavtwe");
+    Motion.GoToXY(132, 17);
+    Call Spawn("Coin") Price(-1) Scene("x-1y4") Flag("coin2131");
+    Motion.GoToXY(-180, 74);
+    Call Spawn("Coin") Price(-1) Scene("x-1y4") Flag("trahsh");
+    Motion.GoToXY(17, 124);
+    Call Spawn character(3) Say:("Welcome to the shop! Feel free to buy my merchandise!") Scene("x-2y4") Flag("");
+    Motion.GoToXY(131, 144);
+    Call Spawn character(3) Say:("The wizards in here are tough!") Scene("x-1y4") Flag("");
+    Motion.GoToXY(-58, 120);
+    Call Spawn("Coin") Price(-1) Scene("x5y6") Flag("xcacqw");
+    Motion.GoToXY(-145, 26);
+    Call Spawn("Coin") Price(-1) Scene("x5y6") Flag("xsa");
+    Motion.GoToXY(0, 25);
+    Call Spawn("Coin") Price(-1) Scene("x5y6") Flag("bfd");
+    Motion.GoToXY(-75, -50);
+    Call Spawn("Coin") Price(-1) Scene("x5y6") Flag("qwd");
+    Motion.GoToXY(-219, 153);
+    Call Spawn("Coin") Price(-1) Scene("x-2y4") Flag("razz");
+    Motion.GoToXY(78, 148);
+    Call Spawn("Coin") Price(-1) Scene("x-3y4") Flag("SDAXC");
+    Motion.GoToXY(-139, 142);
+    Call Spawn("Super Potion") Price(0) Scene("x-3y4") Flag("zxcxzcv");
+    Motion.GoToXY(-208, -91);
+    Call Spawn("Hyper Potion") Price(0) Scene("x-5y4") Flag("hyperx-5");
+    Motion.GoToXY(-93, 98);
+    Call Spawn("Super Potion") Price(0) Scene("x-8y4") Flag("nhbvbv");
+    Motion.GoToXY(0, -100);
+    Call Spawn("Hyper Potion") Price(0) Scene("x-8y4") Flag("cwqeqx");
+    Motion.GoToXY(93, 11);
+    Call Spawn("Coin") Price(-1) Scene("x-8y3") Flag("nhbvbv");
+    Motion.GoToXY(-90, -4);
+    Call Spawn("Hyper Potion") Price(0) Scene("x-8y3") Flag("wqwqwq");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Coin") Price(-1) Scene("x-7y3") Flag("cbqwe");
+    Motion.GoToXY(100, 100);
+    Call Spawn("Coin") Price(-1) Scene("x-7y3") Flag("bn");
+    Motion.GoToXY(-100, -100);
+    Call Spawn("Coin") Price(-1) Scene("x-7y3") Flag("qwec");
+    Motion.GoToXY(0, 0);
+    Call Spawn("Hp Up") Price(0) Scene("x-9y4") Flag("awdxnj");
+    Motion.GoToXY(0, 50);
+    Call Spawn("Hp Up") Price(0) Scene("x-9y4") Flag("qwdrgerger");
+    Motion.GoToXY(0, -65);
+    Call Spawn("Hyper Potion") Price(0) Scene("x-9y4") Flag("wqdwqwdq");
+    Motion.GoToXY(45, 0);
+    Call Spawn("Coin") Price(-1) Scene("x-9y4") Flag("awdxnj");
+    Motion.GoToXY(45, 50);
+    Call Spawn("Coin") Price(-1) Scene("x-9y4") Flag("qedxczxcz");
+    Motion.GoToXY(45, -65);
+    Call Spawn("Coin") Price(-1) Scene("x-9y4") Flag("gbdf");
+    Looks.Hide();
+}
+
+
+//----- Start as clone ------------------------------------------------------------------------------------------------
+
+Control.WhenIStartAsClone()
+{
+    Forever
+    {
+        Looks.Say("");
+        If Sensing.TouchingObject(Player)
+        {
+            If (type == "item")
+            {
+                If (price > 0)
+                {
+                    If (Not (List.ContainsItem(Text, 24)))
+                    {
+                        List.Add(Text, -170);
+                        List.Add(Text, 160);
+                        List.Add(Text, Operator.Join(Operator.Join("G", GOLD), Operator.Join("P", price)));
+                        List.Add(Text, 24);
+                    }
+                }
+                If ((((Sensing.KeyPressed(z) Or Sensing.KeyPressed(m)) Or Sensing.KeyPressed(space)) Or (STICK ACTION == 2)) Or (price < 1))
+                {
+                    GOLD += (-1 * price);
+                    If (GOLD < 0)
+                    {
+                        GOLD += price;
+                        Sound.PlayUntilDone(Buzz Whir);
+                        Repeat (5)
+                        {
+                            Control.Wait(0);
+                        }
+                    }
+                    Else
+                    {
+                        If (Costume.GetNumberName(number) == 8)
+                        {
+                            Sound.Play(Collect);
+                            List.Add(Flags, flag);
+                            PLAYER HEALTH += 3;
+                            PLAYER MAX HP += 3;
+                            List.Add(Text, Sensing.Of(x position, Player));
+                            List.Add(Text, Sensing.Of(y position, Player));
+                            List.Add(Text, "U");
+                            List.Add(Text, 46);
+                            Control.DeleteThisClone();
+                        }
+                        Else
+                        {
+                            Sound.Play(Coin);
+                            List.Add(Flags, flag);
+                            List.Add(Inventory, Costume.GetNumberName(name));
+                            Repeat (9)
+                            {
+                                Looks.ChangeEffectBy(GHOST, 20);
+                                If (Costume.GetNumberName(name) == "coin")
+                                {
+                                    List.Add(Text, -170);
+                                    List.Add(Text, 160);
+                                    List.Add(Text, Operator.Join("G", GOLD));
+                                    List.Add(Text, 24);
+                                }
+                                If (price > 0)
+                                {
+                                    List.Add(Text, -170);
+                                    List.Add(Text, 160);
+                                    List.Add(Text, Operator.Join("G", GOLD));
+                                    List.Add(Text, 24);
+                                }
+                            }
+                            Control.DeleteThisClone();
+                        }
+                    }
+                }
+            }
+            Else
+            {
+                Looks.Say(speech);
+            }
+        }
+    }
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Spawn(string Item) Price(string Price) Scene(string text) Flag(string flag) (warp=false)
+{
+    If ((Sensing.Of(costume name, Wall) == text) And (Not (List.ContainsItem(Flags, flag))))
+    {
+        Looks.SwitchCostumeTo(Item);
+        type = "item";
+        price = Price;
+        flag = flag;
+        Control.CreateCloneOf(_myself_);
+    }
+}
+
+Define Spawn character(string type) Say:(string text) Scene(string scene) Flag(string flag) (warp=false)
+{
+    If ((Sensing.Of(costume name, Wall) == scene) And (Not (List.ContainsItem(Flags, flag))))
+    {
+        Looks.SwitchCostumeTo(type);
+        speech = text;
+        type = "Character";
+        Control.CreateCloneOf(_myself_);
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+Coin.png
+Hp Up.png
+Hyper Potion.png
+Key.png
+Mum.png
+Potion.png
+Shopkeeper.png
+Super Potion.png
+Sword.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+Buzz Whir.wav
+Coin.wav
+Collect.wav

@@ -1,0 +1,141 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+Move = 3
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    List.DeleteAll(Inventory);
+    Forever
+    {
+        Looks.ClearGraphicEffects();
+        Pen.Clear();
+        Looks.SetSizeTo(100);
+        Looks.SwitchCostumeTo(Operator.Join(Operator.Join("x", Scene X), Operator.Join("y", Scene Y)));
+        Looks.SetEffectTo(BRIGHTNESS, -95);
+        If List.ContainsItem(Flags, "spiderdefeated")
+        {
+            Looks.SwitchCostumeTo(Operator.Join(Operator.Join(Operator.Join("x", Scene X), Operator.Join("y", Scene Y)), "_e"));
+        }
+        If List.ContainsItem(Flags, "wizardgone")
+        {
+            Looks.SwitchCostumeTo(Operator.Join(Operator.Join(Operator.Join("x", Scene X), Operator.Join("y", Scene Y)), "_w"));
+        }
+        If List.ContainsItem(Flags, "win")
+        {
+            Looks.SwitchCostumeTo(Operator.Join(Operator.Join(Operator.Join("x", Scene X), Operator.Join("y", Scene Y)), "s"));
+        }
+        If (Not ((Costume.GetNumberName(number) == 25)))
+        {
+            Call Pen Effect;
+        }
+        Looks.ClearGraphicEffects();
+        Pen.Stamp();
+        Looks.SetEffectTo(GHOST, 100);
+    }
+}
+
+
+//----- Broadcast received events -------------------------------------------------------------------------------------
+
+WhenBroadcastReceived(Change Scene)
+{
+    Call Switch song(1) name("x1y4");
+    Call Switch song(2) name("x2y4");
+    Call Switch song(2) name("x3y4");
+    Call Switch song(3) name("x4y4");
+    Call Switch song(7) name("x6y5");
+    Call Switch song(3) name("x6y6");
+    Call Switch song(2) name("x4y6");
+    Call Switch song(9) name("x-1y4");
+    Call Switch song(1) name("x0y4_e");
+    Call Switch song(10) name("x-5y4");
+    Call Switch song(9) name("x-4y4");
+    Call Switch song(6) name("x-7y4");
+    Call Switch song(10) name("x-6y4");
+    Call Switch song(10) name("x-8y4");
+    Call Switch song(10) name("x-7y5");
+    Call Switch song(11) name("x-9y3");
+    Call Switch song(8) name("x-11y3");
+    Call Switch song(10) name("x-7y3");
+    Call Switch song(12) name("x-12y3");
+    Call Switch song(10) name("x-8y3");
+    Call Switch song(11) name("x-11y3s");
+    Call Switch song(11) name("x-10y3");
+    Call Switch song(3) name("x5y6");
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Pen Effect (warp=true)
+{
+    Move = 0;
+    Motion.PointInDirection(90);
+    Motion.GoToXY(0, 0);
+    Repeat (3)
+    {
+        Move += 1;
+        Repeat (16)
+        {
+            Motion.Move(Move);
+            Pen.Stamp();
+            Motion.Move((0 - Move));
+            Motion.TurnRight(22.5);
+        }
+    }
+}
+
+Define Switch song(string n) name(string nm) (warp=false)
+{
+    If ((Costume.GetNumberName(name) == nm) And (Not ((n == Music))))
+    {
+        Music = n;
+        Sound.StopAllSounds();
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+x-1y4.png
+x-2y4.png
+x-3y4.png
+x-4y4.png
+x-5y4.png
+x-6y4.png
+x-7y3.png
+x-7y4.png
+x-7y4_w.png
+x-8y3.svg
+x-8y4.png
+x-9y3.png
+x-9y4.png
+x-10y3.png
+x-11y3.png
+x-11y3s.png
+x-12y3.png
+x0y4.png
+x0y4_e.png
+x1y4.png
+x1y5.png
+x2y4.png
+x2y5.png
+x3y4.png
+x3y5.png
+x4y4.png
+x4y6.png
+x5y4.png
+x5y6.png
+x6y4.png
+x6y5.png
+x6y5_e.png
+x6y6.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+pop.wav

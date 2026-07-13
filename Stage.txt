@@ -1,0 +1,190 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+EXP = 0
+FPS = 30
+GAME PAUSE = 0
+GOLD = 0
+INVUNERABLE = -751
+KNOCK DIR = -169.91533192531
+KNOCK POWER = 0
+Lc = 17685
+LEVEL = 1
+Music = 1
+PLAYER HEALTH = 24
+PLAYER MAX HP = 24
+Scene X = 1
+Scene Y = 5
+STICK ACTION = 0
+STICK DIR = -
+TESTING = 0
+
+
+//----- Lists ---------------------------------------------------------------------------------------------------------
+
+Exp.Extra = { 
+    -3
+    -4
+    6
+    2
+    140
+    -999
+    -999
+    16
+    -999
+    13
+    32
+    -999
+    320
+    1280
+}
+Flags = { 
+    Mumspeech1
+    unspider
+}
+Inventory = { 
+    Potion
+}
+Level Curve = { 
+    45
+    70
+    90
+    140
+    180
+    220
+    280
+    350
+    420
+    500
+    580
+    670
+    750
+    850
+    1500
+    2000
+    2500
+    3000
+    3500
+    4000
+    4500
+    8000
+    12000
+    17000
+    23000
+    26000
+    30000
+    50000
+    70000
+    100000
+    140000
+    180000
+    220000
+    270000
+    400000
+    1000000
+    09999999099999990999999909999999099999990999999909999999099999990999999909999999099999990999999909999999099999990999999909999999
+}
+mumspeech = { 
+    I've lost my keys! Help find them!
+    Thank you so much! You're so strong! You surely can explore the world on yoru own!
+}
+Nopoint = { 
+    9
+    12
+}
+Text = { }
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Forever
+    {
+        Looks.SwitchCostumeTo(Operator.Join(Operator.Join("x", Scene X), Operator.Join("y", Scene Y)));
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Sound.SetVolumeTo(100);
+    Music = 1;
+    Forever
+    {
+        Sound.PlayUntilDone(Music);
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Control.Wait(0);
+    Forever
+    {
+        Wait Until (EXP > (Level Curve[LEVEL] + 1));
+        EXP += (0 - Level Curve[LEVEL]);
+        LEVEL += 1;
+        PLAYER HEALTH += 1;
+        PLAYER MAX HP += 1;
+        Control.Wait(0.2);
+        Sound.Play(Level Up);
+        List.Add(Text, Sensing.Of(x position, Player));
+        List.Add(Text, Sensing.Of(y position, Player));
+        List.Add(Text, "L");
+        List.Add(Text, 55);
+    }
+}
+
+WhenGreenFlagClicked()
+{
+    Forever
+    {
+        If (PLAYER HEALTH < (PLAYER MAX HP / 3))
+        {
+            Sound.PlayUntilDone(pokmon_low_hp_sound_no_battle_the_(getmp3);
+        }
+    }
+}
+
+
+//----- Broadcast received events -------------------------------------------------------------------------------------
+
+WhenBroadcastReceived(Game Over)
+{
+    Sound.SetVolumeTo(0);
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+x-1y2.png
+x-1y4.png
+x-4y4.png
+x-5y4.png
+x-8y3.png
+x-9y3.png
+x0y4.png
+x0y4_e.png
+x1y4.png
+x1y5.png
+x2y4.png
+x3y4.png
+x3y5.png
+x4y4.png
+x4y6.png
+x5y6.png
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+014-Treasure-Town.wav
+029-Apple-Woods.wav
+033-Foggy-Forest.mp3
+034-Steam-Cave.wav
+060-Battle-against-Dusknoir.wav
+095-Palkias-Onslaught.wav
+097-Deep-Dark-Crater.wav
+122-Illusion-Stone-Chamber.mp3
+Final.wav
+Game Over.mp3
+Level Up.wav
+pokmon_low_hp_sound_no_battle_the_(getmp3.wav
+Win.mp3

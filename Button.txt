@@ -1,0 +1,47 @@
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    STICK ACTION = 0;
+    Motion.GoToXY(-180, -140);
+    Looks.SwitchCostumeTo(costume1);
+    Looks.SetEffectTo(GHOST, 30);
+    Control.CreateCloneOf(_myself_);
+}
+
+
+//----- Key pressed events --------------------------------------------------------------------------------------------
+
+WhenKeyPressed(any)
+{
+    Looks.SetEffectTo(GHOST, 100);
+}
+
+
+//----- Sprite clicked events -----------------------------------------------------------------------------------------
+
+WhenThisSpriteClicked()
+{
+    STICK ACTION = Costume.GetNumberName(number);
+    Control.Wait(0.2);
+    STICK ACTION = 0;
+}
+
+
+//----- Start as clone ------------------------------------------------------------------------------------------------
+
+Control.WhenIStartAsClone()
+{
+    Looks.SwitchCostumeTo(costume2);
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+costume1.svg
+costume2.svg
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+pop.wav

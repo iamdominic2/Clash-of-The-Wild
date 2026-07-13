@@ -1,0 +1,104 @@
+//----- Variables -----------------------------------------------------------------------------------------------------
+
+Count = 2
+Gold = 
+
+
+
+//----- Green flag events ---------------------------------------------------------------------------------------------
+
+WhenGreenFlagClicked()
+{
+    Looks.Hide();
+    List.DeleteAll(Text);
+    Forever
+    {
+        If (List.Length(Text) > 0)
+        {
+            Call Text;
+            Control.Wait(0);
+            List.DeleteItem(Text, 1);
+            List.DeleteItem(Text, 1);
+            List.DeleteItem(Text, 1);
+            List.DeleteItem(Text, 1);
+        }
+    }
+}
+
+
+//----- Start as clone ------------------------------------------------------------------------------------------------
+
+Control.WhenIStartAsClone()
+{
+    Looks.Show();
+    If ((Gold == 1) And Operator.Contains(Text[3], "P"))
+    {
+        Control.Wait(0);
+        Control.Wait(0);
+        Control.DeleteThisClone();
+    }
+    Repeat (4)
+    {
+        Motion.ChangeYBy((3 * (1 - Gold)));
+    }
+    Repeat (10)
+    {
+        Motion.ChangeYBy((3 * (1 - Gold)));
+        Looks.ChangeEffectBy(GHOST, 10);
+    }
+    Control.DeleteThisClone();
+}
+
+
+//----- Custom blocks -------------------------------------------------------------------------------------------------
+
+Define Text (warp=true)
+{
+    Looks.SwitchCostumeTo(G2);
+    Motion.GoToXY(Text[1], Text[2]);
+    If (Not ((Text[4] == 24)))
+    {
+        Motion.ChangeXBy((-6 * (Variable.Length(Text[3]) - 1)));
+    }
+    Else
+    {
+        Motion.ChangeXBy(-35);
+    }
+    Count = 0;
+    Gold = (Text[4] == 24);
+    Repeat (Variable.Length(Text[3]))
+    {
+        Count += 1;
+        Looks.SwitchCostumeTo(Operator.LetterOf(Text[3], Count));
+        Looks.SetEffectTo(COLOR, (Text[4] * (Not ((Costume.GetNumberName(number) == 17)))));
+        Control.CreateCloneOf(_myself_);
+        Motion.ChangeXBy((12 * (1 + (((Costume.GetNumberName(number) == 17) + ((Costume.GetNumberName(number) == 18) * 5)) * 1.25))));
+    }
+}
+
+
+//----- Costumes ------------------------------------------------------------------------------------------------------
+
+-.png
+..svg
+0.svg
+1.svg
+2.svg
+3.svg
+4.svg
+5.svg
+6.svg
+7.svg
+8.svg
+9.svg
+C.svg
+G.png
+L.svg
+M.svg
+P.svg
+U.svg
+
+
+//----- Sounds --------------------------------------------------------------------------------------------------------
+
+pop.wav
