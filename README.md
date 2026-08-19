@@ -18,9 +18,9 @@ You may stumble upon shops on the way. Choose what to buy carefully, as gold coi
 
 ## Treasure hunting
 Go to every unpredictable spot! Hint: ***left** out treasure*
-<img width="1379" height="1038" alt="image (55)" src="https://github.com/user-attachments/assets/4b1a98fb-f32d-40fe-917b-f574a287ed88" />
+<img width="690" height="519" alt="image (55)" src="https://github.com/user-attachments/assets/4b1a98fb-f32d-40fe-917b-f574a287ed88" />
 
 ## Boss fights
 You can't get out - do your best to kill the big baddie (and its associated mini-minions!).
 Hint: Monsters move directly towards you, so the best way to avoid physical contact is to walk circles around them - however, it is indeed tricky because you need to face them for a split second to unleash your stone sword's might at them!
-<img width="1369" height="1038" alt="image (56)" src="https://github.com/user-attachments/assets/73a247d5-9dd4-4c26-9a9d-74899cbbb69d" />
+<img width="685" height="519" alt="image (56)" src="https://github.com/user-attachments/assets/73a247d5-9dd4-4c26-9a9d-74899cbbb69d" />
