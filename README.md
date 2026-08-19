@@ -7,10 +7,10 @@ A Zelda-style 2D top-down action RPG. Step into a dangerous 2D world as a hero a
 
 ## Controls
 
-**(mobile controls are also supported)**
+**(mobile controls are also supported)**<BR>
 Use WASD or Arrow Keys to move.<BR>
-Use H to use a healing potion (critical for boss fights!)<BR>
-Use Z or Spacebar to attack (**crucial: don't miss where the stone sword is, otherwise you can't attack!**
+Use H to use a healing potion (important for boss fights!)<BR>
+Use Z or Spacebar to attack (**crucial: don't miss where the stone sword is, otherwise you can't attack!**)
 
 ## Shopping
 You may stumble upon shops on the way. Choose what to buy carefully, as gold coins are limited in this game!
