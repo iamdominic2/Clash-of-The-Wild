@@ -1,7 +1,7 @@
 # Clash of The Wild
 **LINK: https://iamdominic2.github.io/Clash-of-The-Wild/**
 
-A Zelda-inspired 2D top-down action RPG. Step into an dangerous 2D world as a hero armed only with a stone sword to ward off aggressive monsters, dodge enemy projectiles, gain EXP to level up, and manage your health with potions and Max HP power-ups!.
+A Zelda-style 2D top-down action RPG. Step into a dangerous 2D world as a hero armed only with a stone sword to ward off aggressive monsters, dodge enemy projectiles, gain EXP to level up, and manage your health with potions and Max HP power-ups!.
 
 <img width="615" height="460" alt="image (54)" src="https://github.com/user-attachments/assets/0aad89cb-4743-41b0-8881-c824b4dee051" />
 
