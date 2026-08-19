@@ -1,5 +1,6 @@
 # Clash of The Wild
-**Play in your browser! https://iamdominic2.github.io/Clash-of-The-Wild/**
+**Play in your browser! https://iamdominic2.github.io/Clash-of-The-Wild/**<BR>
+Play on Scratch: https://scratch.mit.edu/projects/683625341/
 
 A Zelda-style 2D top-down action RPG. Step into a dangerous 2D world as a hero armed only with a stone sword to ward off aggressive monsters, dodge enemy projectiles, gain EXP to level up, and manage your health with potions and Max HP power-ups!.
 
