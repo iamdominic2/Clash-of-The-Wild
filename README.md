@@ -18,7 +18,8 @@ You may stumble upon shops on the way. Choose what to buy carefully, as gold coi
 
 ## Treasure hunting
 Go to every unpredictable spot! Hint: ***left** out treasure*
-<img width="690" height="519" alt="image (55)" src="https://github.com/user-attachments/assets/4b1a98fb-f32d-40fe-917b-f574a287ed88" />
+<img width="690" height="519" alt="638146482-4b1a98fb-f32d-40fe-917b-f574a287ed88" src="https://github.com/user-attachments/assets/f0e3d03c-f29f-4c52-a270-77143cd527ec" />
+
 
 ## Boss fights
 You can't get out - do your best to kill the big baddie (and its associated mini-minions!).<BR>
